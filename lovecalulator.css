@@ -1,0 +1,31 @@
+@media ( max-width: 600px){
+    .body{
+        width: 100px;
+    }
+
+}
+body {    
+    background-image: url(/IMAGE/background9.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 80vh;
+    width: 100%;
+    background-position: right top;
+    background-attachment: fixed;
+}
+input{
+    box-shadow: white 1px 1px 2px 0;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+}
+input::placeholder{
+    color: white;
+}
+button{
+    color: red;
+    border: none;
+    background-color: transparent;
+    height: 50px;
+    border: none;
+    font-size: 40px;
+    margin-top: 60px; 
+}

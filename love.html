@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Love Calculator</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f5f5f5;
+        }
+
+        .love-container {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        .love-meter {
+            margin: 20px 0;
+        }
+
+        .love-result {
+            font-size: 24px;
+            font-weight: bold;
+            color: #e74c3c;
+        }
+
+        .love-images {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .love-images img {
+            width: 100px;
+            height: 100px;
+            margin: 0 10px;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 offset-lg-3">
+                <div class="love-container">
+                    <h1>Love Calculator</h1>
+                    <form>
+                        <div class="form-group">
+                            <label>Your Name</label>
+                            <input type="text" class="form-control" placeholder="Your Name" id="input1" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Partner's Name</label>
+                            <input type="text" class="form-control" placeholder="Partner's Name" id="input2" required>
+                        </div>
+                        <button type="button" class="btn btn-primary" onclick="calculateLove()">Calculate Love</button>
+                    </form>
+                    <div class="love-meter">
+                        <div class="progress">
+                            <div id="love-progress" class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 0%;">
+                                <span class="love-result">0%</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="love-images">
+                        <img src="/IMAGE/Kissing-rafiki.svg" alt="Your Image">
+                        <img src="/IMAGE/Super thank you-amico.svg" alt="Heart Image">
+                        <img src="/IMAGE/Couple-cuate.svg" alt="Partner's Image">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h1 id="display" class="text-warning text-center mt-5"></h1>
+
+    <audio id="love-music"></audio>
+
+    <script>
+        var currentMusic = document.getElementById("love-music");
+
+        function calculateLove() {
+            var input1 = document.getElementById("input1");
+            var input2 = document.getElementById("input2");
+            var display = document.getElementById("display");
+            var loveProgress = document.getElementById("love-progress");
+
+            if (input1.value === "" || input2.value === "") {
+                alert("Enter a name");
+                display.innerHTML = "";
+            } else {
+                display.innerHTML = "";
+                var randomPercentage = Math.round(Math.random() * 100);
+                display.innerHTML = `Our love is ${randomPercentage}%`;
+                loveProgress.style.width = `${randomPercentage}%`;
+                loveProgress.innerHTML = `${randomPercentage}%`;
+                input1.value = "";
+                input2.value = "";
+
+                if (currentMusic) {
+                    currentMusic.pause();
+                }
+
+                if (randomPercentage >= 85) {
+                    currentMusic.src = "./Simi-By-You-ft-Adenkule-Gold.mp3";
+                } else if (randomPercentage >= 75) {
+                    currentMusic.src = "./[Waploaded]_Adekunle_Gold_-_Promise_Ft.__Simi-1547674581.mp3";
+                } else if (randomPercentage >= 50) {
+                    currentMusic.src = "./Boy_Spyce_-_Nobody.mp3";
+                } else if (randomPercentage >= 30) {
+                    currentMusic.src = "./Burna_Boy_-_Last_Last_Breakfast_.mp3";
+                } else if (randomPercentage >= 0) {
+                    currentMusic.src = "./AUD-20221103-WA0010.m4a";
+                }
+
+                currentMusic.play();
+            }
+        }
+    </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
